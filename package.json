@@ -2,9 +2,10 @@
   "name": "vms",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,8 @@
     "electron": "^8.2.5",
     "electron-packager": "^14.2.1",
     "i": "^0.3.6"
+  },
+  "dependencies": {
+    "node-php-server": "^0.1.2"
   }
 }
