@@ -126,7 +126,7 @@
             <a href="{{ URL::to('/agent') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Agent
+                  Users
                 </p>
             </a>
           </li>
@@ -155,14 +155,14 @@
             </a>
           </li>
     
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{  URL::to('owner/transactionHistory') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Owner Transaction
               </p>
             </a>
-          </li>
+          </li> --}}
 
           
         </ul>
@@ -184,7 +184,7 @@
     <strong>Copyright &copy; 2019 </strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0
+      <b>Version</b> 1.0 | Developed by <a href="http://darkcoderse.com">Kashif Saleem</a>
     </div>
   </footer>
 

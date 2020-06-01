@@ -64,12 +64,12 @@
                     </div>
                 </div>
 
-                <div class="card-body p-0">
-                    <table class="table table-striped m-0" id="providerTable">
+                <div class="card-body">
+                    <table class="table table-striped" id="providerTable">
                         <thead>
                             <tr>
                                 <th>Provider ID</th>
-                                <th>MARKA Name</th>
+                                <th>Brand Name</th>
                                 <th>Provider Name</th>
                                 <th>Phone Number</th>
                                 <th>Address</th>

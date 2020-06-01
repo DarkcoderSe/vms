@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h4>
-                                Trade Mark for {{ $provider->name }} 
+                                Product for {{ $provider->name }} 
                             </h4>
                         </div>
                         <div class="col-md-6">
@@ -83,7 +83,7 @@
                         <input type="hidden" name="provider_id" value="{{ $provider->id }} ">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label>Marka Name </label>
+                                <label>Brand Name</label>
                                 <input type="text" name="marka_name" class="form-control" value="{{ is_null($tradeMark)? '': $tradeMark->marka_name }}" >
                                 @if($errors->any('marka_name'))
                                 <span class="small red">
@@ -110,7 +110,7 @@
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-success">
-                                Update Trade Mark
+                                Update Product
                             </button>
                         </div>
                     </form>
@@ -131,11 +131,11 @@
                                                 <div class="col-md-9">
                                                         @csrf 
                                                         <input type="hidden" name="trade_mark_id" value="{{ is_null($tradeMark)? '': $tradeMark->id }}">
-                                                        <input type="text" name="truck_number" class="form-control" placeholder="Truck Number, e.g: PAK 123">
+                                                        <input type="text" name="truck_number" class="form-control" placeholder="Vehicle Number, e.g: PAK 123">
                                                     
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <button type="submit" class="btn btn-success btn-block">Add Truck</button>
+                                                    <button type="submit" class="btn btn-success btn-block">Add Vehicle Record</button>
                                                 </form>
                                                 </div>
                                             </div>
@@ -148,7 +148,7 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                Truck number
+                                                Vehicle number
                                             </th>
                                             <th>Action</th>
                                         </tr>
@@ -177,11 +177,11 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-6">
-                            <h4>Food Types for {{ is_null($tradeMark) ? '': $tradeMark->marka_name }}</h4>
+                            <h4>Products of {{ is_null($tradeMark) ? '': $tradeMark->marka_name }}</h4>
                         </div>    
                         <div class="col-md-6">
                             <a href="{{ URL::to('/provider/tradeMark/foodType/create', is_null($tradeMark) ? '': $tradeMark->id) }} " class="btn btn-primary" style="float: right;">
-                                Add new Food Type 
+                                Add new Product
                             </a>
                         </div>
                     </div>    

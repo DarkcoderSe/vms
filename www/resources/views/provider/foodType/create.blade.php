@@ -11,7 +11,7 @@
                             
                         </div>
                         <div class="col-md-4" style="text-align: center;">
-                            <h3>Food Types</h3>
+                            <h3>Product Detail</h3>
                         </div>
                         <div class="col-md-4">
                             
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
                         <button type="submit" class="btn btn-success">
-                            Add new Food Type
+                            Add new Product
                         </button>
 
                     </form>
