@@ -1,2 +1,12 @@
 /node_modules
+/www/node_modules
+/www/public/img
+/www/public/storage
+/www/storage/*.key
 /www/vendor
+/www/.env.backup
+/www/.phpunit.result.cache
+//www/Homestead.json
+/www/Homestead.yaml
+/www/npm-debug.log
+/www/yarn-error.log
