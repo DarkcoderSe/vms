@@ -15,7 +15,8 @@
         "laravel/passport": "^8.0",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
-        "paragonie/random_compat": "2.*"
+        "paragonie/random_compat": "2.*",
+        "rachidlaasri/laravel-installer": "^4.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
