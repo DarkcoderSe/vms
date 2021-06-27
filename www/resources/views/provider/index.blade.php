@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('pageTitle', 'Provider')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     @push('style')
 
         <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-print-1.5.6/r-2.2.2/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.css">
@@ -80,7 +80,7 @@
                             @foreach($providers as $provider)
                             <tr>
                                 <td>{{ $provider->id }} </td>
-                                <td>{{ $provider->tradeMark->marka_name}} </td>
+                                <td>{{ $provider->tradeMark->marka_name ?? ''}} </td>
                                 <td><a  href="{{ URL::to('/provider/edit', $provider->id) }} "><button class="button"> {{ $provider->name }}</button> </a></td>
                                 <td>{{ $provider->phone_no }} </td>
                                 <td>{{ $provider->address }} </td>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('pageTitle', 'Provider')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -46,14 +46,16 @@
                             </div>
 
                         </div>
-                        <div class="form-group col-md-12">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control"></textarea>
-                            @if($errors->any('address'))
-                            <span class="small red">
-                                {{ $errors->first('address') }}
-                            </span>
-                            @endif
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Address</label>
+                                <textarea name="address" class="form-control"></textarea>
+                                @if($errors->any('address'))
+                                <span class="small red">
+                                    {{ $errors->first('address') }}
+                                </span>
+                                @endif
+                            </div>
                         </div>
                         <button type="submit" onclick="allLetter(document.form1.text1)"  class="btn btn-success">
                             Add new Provider

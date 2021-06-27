@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('pageTitle', 'Provider')
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -47,14 +47,16 @@
                             </div>
 
                         </div>
-                        <div class="form-group col-md-12">
-                            <label>Address</label>
-                            <textarea name="address" class="form-control">{{ $provider->address }} </textarea>
-                            @if($errors->any('address'))
-                            <span class="small red">
-                                {{ $errors->first('address') }}
-                            </span>
-                            @endif
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Address</label>
+                                <textarea name="address" class="form-control">{{ $provider->address }} </textarea>
+                                @if($errors->any('address'))
+                                <span class="small red">
+                                    {{ $errors->first('address') }}
+                                </span>
+                                @endif
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-success">
                             Update Provider
@@ -64,6 +66,59 @@
                 </div>
             </div>
 
+
+            @if(!is_null($tradeMark))
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Products of {{ is_null($tradeMark) ? '': $tradeMark->marka_name }}</h4>
+                        </div>    
+                        <div class="col-md-6">
+                            <a href="{{ URL::to('/provider/tradeMark/foodType/create', is_null($tradeMark) ? '': $tradeMark->id) }} " class="btn btn-primary" style="float: right;">
+                                Add new Product
+                            </a>
+                        </div>
+                    </div>    
+                </div> 
+                <div class="card-body p-0">
+                    @if($tradeMark->FoodTypes->count() > 0)
+                    <table class="table table-striped m-0">
+                        <thead>
+                            <tr>
+                                <th>Serial. No.</th>
+                                <th>Total Quantity</th>
+                                <th>Remaining Quantity</th>
+                                <th>Price Per Crate</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($tradeMark->FoodTypes as $foodType)
+                            <tr>
+                                <td> {{ $foodType->serial_no }} </td>
+                                <td>{{ $foodType->total_quantity }} </td>
+                                <td>{{ $foodType->remaining_quantity }} </td>
+                                <td>{{ $foodType->price_per_crate }} </td>
+                                <td>
+                                    <a href="{{ URL::to('/provider/tradeMark/foodType/edit', $foodType->id) }}" class="btn btn-primary btn-sm">
+                                        Edit
+                                    </a>
+                                    <!-- <a href="{{ URL::to('/provider/tradeMark/foodType/delete', $foodType->id) }} " class="btn btn-danger btn-sm">
+                                        Delete
+                                    </a> -->
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
+                </div>   
+            </div> 
+            @endif    
+                   
+        </div>
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -171,57 +226,6 @@
                         @endif
                 </div>
             </div>
-
-            @if(!is_null($tradeMark))
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>Products of {{ is_null($tradeMark) ? '': $tradeMark->marka_name }}</h4>
-                        </div>    
-                        <div class="col-md-6">
-                            <a href="{{ URL::to('/provider/tradeMark/foodType/create', is_null($tradeMark) ? '': $tradeMark->id) }} " class="btn btn-primary" style="float: right;">
-                                Add new Product
-                            </a>
-                        </div>
-                    </div>    
-                </div> 
-                <div class="card-body p-0">
-                    @if($tradeMark->FoodTypes->count() > 0)
-                    <table class="table table-striped m-0">
-                        <thead>
-                            <tr>
-                                <th>Serial. No.</th>
-                                <th>Total Quantity</th>
-                                <th>Remaining Quantity</th>
-                                <th>Price Per Crate</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($tradeMark->FoodTypes as $foodType)
-                            <tr>
-                                <td> {{ $foodType->serial_no }} </td>
-                                <td>{{ $foodType->total_quantity }} </td>
-                                <td>{{ $foodType->remaining_quantity }} </td>
-                                <td>{{ $foodType->price_per_crate }} </td>
-                                <td>
-                                    <a href="{{ URL::to('/provider/tradeMark/foodType/edit', $foodType->id) }}" class="btn btn-primary btn-sm">
-                                        Edit
-                                    </a>
-                                    <!-- <a href="{{ URL::to('/provider/tradeMark/foodType/delete', $foodType->id) }} " class="btn btn-danger btn-sm">
-                                        Delete
-                                    </a> -->
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    @endif
-                </div>   
-            </div> 
-            @endif    
-                   
         </div>
     </div>
 </div>
