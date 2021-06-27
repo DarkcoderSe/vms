@@ -39,7 +39,7 @@ class CustomerController extends Controller
     }
     public function update(Request $request){
         $request->validate([
-            'name' => 'required|string|min:3|max:15',
+            'name' => 'required|string|min:3|max:70',
             'phone_no' => 'required|numeric|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'description' => 'string|nullable',
             'new_paid_ammount' => 'nullable|numeric'

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('pageTitle', 'Temp Book')
+@section('pageTitle', 'Make A Sale')
 @section('content')
 @push('style')
 <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -44,7 +44,10 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-7">
                                         <label>Customer Name</label>
-                                        <input type="search" id="customerName" name="customer_name" class="form-control">
+                                        <input type="search" list="customers" id="customerName" name="customer_name" class="form-control">
+                                        <datalist id="customers">
+                                        </datalist>
+
                                         @if($errors->any('customer_name'))
                                         <span class="small red">
                                             {{ $errors->first('customer_name') }}
@@ -94,33 +97,20 @@
             let url = "{{ URL::to('/customer/get') }}/"+customerName;
 
             $.get(url, function(response){
-                // console.log(response);
-                
-                let row = "";
+               
+                let options = '';
+
                 for(let i=0; i< response['customers'].length; i++){
+
                     let phoneNo = (response['customers'][i]['phone_no']);
                     let name = response['customers'][i]['name'];
                     let dues = response['customers'][i]['total_dues'];
-                    row  
-                    // "<tr>"+
-                    //             "<td onClick='getCustomer(${phoneNo},${name});'>"+
-                    //                 "<b>"+ response['customers'][i]['name'] +"</b><br>"+
-                    //                 response['customers'][i]['phone_no'] +"<br>"+
-                    //                 "<b>Dues:</b> "+ response['customers'][i]['total_dues']
-                    //             "</td>"+
-                    //         "</tr>";
-                        += `
-                             <tr>
-                                <td onClick="getCustomer('${phoneNo}', '${name}')">
-                                    <b>${name}</b><br>
-                                    ${phoneNo}<br>
-                                    <b>Dues: </b> ${dues}
-                                </td>
-                             </tr>       
-                            `;
+
+                    options += `<option onClick="getCustomer('${phoneNo}', '${name}')" value='${name}'>`;
                     
                 };
-                $("#resultCustomer").html(row);
+                $('#customers').html(options);
+
                 
             }); 
         });
