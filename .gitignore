@@ -1,2 +1,4 @@
 /node_modules
 /www/vendor
+/www/.env
+/www/composer.lock
