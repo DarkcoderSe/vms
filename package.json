@@ -1,6 +1,6 @@
 {
   "name": "vms",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -11,9 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^8.2.5",
-    "electron-packager": "^14.2.1",
-    "i": "^0.3.6"
+    "electron": "^22.0"
   },
   "dependencies": {
     "node-php-server": "^0.1.2"

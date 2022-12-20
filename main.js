@@ -9,7 +9,7 @@ app.on('ready', () => {
 })
 
 var phpServer = require('node-php-server');
-const port = 8000, host = '127.0.0.1';
+const port = 9002, host = '127.0.0.1';
 const serverUrl = `http://${host}:${port}`;
 
 
@@ -23,7 +23,7 @@ function createWindow() {
     base: `${__dirname}/www/public`,
     keepalive: false,
     open: false,
-    bin: `${__dirname}/php/php.exe`,
+    bin: 'php',
     router: __dirname + '/www/server.php'
   });
   
